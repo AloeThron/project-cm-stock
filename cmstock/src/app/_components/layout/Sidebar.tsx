@@ -25,7 +25,6 @@ import {
   Inbox,
   ChevronLeft,
   ChevronRight,
-  Shop2Outlined,
   Shop,
 } from "@mui/icons-material";
 import { DrawerHeader } from "./DrawerHeader";

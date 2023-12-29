@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -11,9 +11,15 @@ export default function AuthProvider({ children }: Props) {
   const router = useRouter();
   const path = usePathname();
 
-  if (path != "/stock") {
-    router.push("/stock");
-  } else {
-    return <div>{children}</div>;
-  }
+  useEffect(() => {
+    function initialize() {
+      if (path == "/") {
+        router.push("/stock");
+        return null;
+      }
+    }
+    initialize();
+  });
+
+  return <div>{children}</div>;
 }

@@ -1,15 +1,15 @@
 "use client";
-import { Box, styled } from "@mui/material";
-import React, { useState } from "react";
+import { Box } from "@mui/material";
+import React, { ReactNode, useState } from "react";
 import Header from "../_components/layout/Header";
 import Sidebar from "../_components/layout/Sidebar";
 import { DrawerHeader } from "../_components/layout/DrawerHeader";
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
-export default function layout({ children }: Props) {
+export default function Layout({ children }: Props) {
   const [open, setOpen] = useState(true);
 
   const handleDrawerOpen = () => {
@@ -26,8 +26,8 @@ export default function layout({ children }: Props) {
         <Header handleDrawerOpen={handleDrawerOpen} open={open} />
         <Sidebar handleDrawerClose={handleDrawerClose} open={open} />
         <Box>
-            <DrawerHeader />
-            {children}
+          <DrawerHeader />
+          {children}
         </Box>
       </Box>
     </section>
