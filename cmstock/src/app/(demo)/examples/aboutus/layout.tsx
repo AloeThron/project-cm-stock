@@ -5,5 +5,10 @@ type Props = {
 };
 
 export default function AboutLayout({ children }: Props) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <h4>Section</h4>
+      {children}
+    </div>
+  );
 }
