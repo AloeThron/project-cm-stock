@@ -18,8 +18,8 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import { RootState, useAppDispatch } from "@/src/store/store";
-import { add, signIn, userSelector } from "@/src/store/slices/userSlice";
+import { RootState, useAppDispatch } from "@/store/store";
+import { add, signIn, userSelector } from "@/store/slices/userSlice";
 
 interface User {
   username: string;

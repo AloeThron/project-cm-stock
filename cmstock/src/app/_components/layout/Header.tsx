@@ -12,6 +12,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import { Badge, Menu, MenuItem } from "@mui/material";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/store/store";
+import { signOut } from "@/store/slices/userSlice";
 
 const drawerWidth = 240;
 interface AppBarProps extends MuiAppBarProps {
@@ -40,7 +42,7 @@ type Props = { handleDrawerOpen: any; open: boolean };
 
 const Header = ({ handleDrawerOpen, open }: Props) => {
   const [showProfileMenu, setShowProfileMenu] = React.useState(false);
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const handleClose = () => {
     setShowProfileMenu(false);
@@ -114,9 +116,9 @@ const Header = ({ handleDrawerOpen, open }: Props) => {
           >
             <MenuItem
               onClick={async () => {
-                // const response = await dispatch(signOut());
-                // if (response.meta.requestStatus === "fulfilled")
-                //   router.push("/login");
+                const response = await dispatch(signOut());
+                if (response.meta.requestStatus === "fulfilled")
+                  router.push("/login");
               }}
             >
               Logout
